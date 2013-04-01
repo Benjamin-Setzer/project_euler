@@ -63,10 +63,6 @@ class GridSolver(object):
 		self._check_diagonal()
 		return self._max_val
 
-from timeit import timeit
-gs = GridSolver(inputGrid)
-n = 100
-total_time = timeit(gs.solve, number=n)
-
-print total_time / n
-print total_time
+if __name__ == '__main__':
+	gs = GridSolver(inputGrid)
+	print gs.solve()
