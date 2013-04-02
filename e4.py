@@ -19,8 +19,10 @@ def find_largest_pal_product(low_bound, up_bound):
     largest_pal = 0
     for i in xrange(low_bound, up_bound):
         for j in xrange(low_bound, up_bound):
-            if is_pal(i*j):
-                largest_pal = i*j
+            maybe_pal = i*j 
+            if is_pal(maybe_pal):
+                if maybe_pal > largest_pal:
+                    largest_pal = maybe_pal
     return largest_pal
     
 if __name__ == '__main__':
