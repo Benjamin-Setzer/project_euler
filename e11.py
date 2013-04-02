@@ -24,45 +24,45 @@ inputGrid = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"""
-		
+        
 class GridSolver(object):
-	_max_val = 0
-	def __init__(self, grid):
-		self.grid = [map(int, col.split(' ')) for col in grid.split('\n')]
-		dim = len(self.grid)
-		for row in self.grid:
-			if not len(row) == dim:
-				raise ValueError('Grid must be a NxN matrix')
-				
-	def _update_max(self, val):
-		if val > self._max_val:
-			self._max_val = val
-		
-	def _check_horizontal(self):
-		for i in xrange(len(self.grid)):
-			for j in xrange(len(self.grid) - 3):
-				self._update_max(self.grid[i][j] * self.grid[i][j+1] * self.grid[i][j+2] * self.grid[i][j+3])
-				
-	def _check_vertical(self):
-		for i in xrange(len(self.grid) - 3):
-			for j in xrange(len(self.grid)):
-				self._update_max(self.grid[i][j] * self.grid[i+1][j] * self.grid[i+2][j] * self.grid[i+3][j])
-	
-	def _check_diagonal(self):
-		for i in xrange(len(self.grid) - 3):
-			for j in xrange(len(self.grid) - 3):
-				self._update_max(self.grid[i][j] * self.grid[i+1][j+1] * self.grid[i+2][j+2] * self.grid[i+3][j+3])
-		
-		for i in xrange(len(self.grid) - 3):
-			for j in xrange(3, len(self.grid)):
-				self._update_max(self.grid[i][j] * self.grid[i+1][j-1] * self.grid[i+2][j-2] * self.grid[i+3][j-3])
-	
-	def solve(self):
-		self._check_horizontal()
-		self._check_vertical()
-		self._check_diagonal()
-		return self._max_val
+    _max_val = 0
+    def __init__(self, grid):
+        self.grid = [map(int, col.split(' ')) for col in grid.split('\n')]
+        dim = len(self.grid)
+        for row in self.grid:
+            if not len(row) == dim:
+                raise ValueError('Grid must be a NxN matrix')
+                
+    def _update_max(self, val):
+        if val > self._max_val:
+            self._max_val = val
+        
+    def _check_horizontal(self):
+        for i in xrange(len(self.grid)):
+            for j in xrange(len(self.grid) - 3):
+                self._update_max(self.grid[i][j] * self.grid[i][j+1] * self.grid[i][j+2] * self.grid[i][j+3])
+                
+    def _check_vertical(self):
+        for i in xrange(len(self.grid) - 3):
+            for j in xrange(len(self.grid)):
+                self._update_max(self.grid[i][j] * self.grid[i+1][j] * self.grid[i+2][j] * self.grid[i+3][j])
+    
+    def _check_diagonal(self):
+        for i in xrange(len(self.grid) - 3):
+            for j in xrange(len(self.grid) - 3):
+                self._update_max(self.grid[i][j] * self.grid[i+1][j+1] * self.grid[i+2][j+2] * self.grid[i+3][j+3])
+        
+        for i in xrange(len(self.grid) - 3):
+            for j in xrange(3, len(self.grid)):
+                self._update_max(self.grid[i][j] * self.grid[i+1][j-1] * self.grid[i+2][j-2] * self.grid[i+3][j-3])
+    
+    def solve(self):
+        self._check_horizontal()
+        self._check_vertical()
+        self._check_diagonal()
+        return self._max_val
 
 if __name__ == '__main__':
-	gs = GridSolver(inputGrid)
-	print gs.solve()
+    gs = GridSolver(inputGrid)
+    print gs.solve()
