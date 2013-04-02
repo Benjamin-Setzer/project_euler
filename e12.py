@@ -6,27 +6,9 @@ from scipy import weave
 from scipy.weave import converters
 
 ccode = """
-    #line 1000 e12.py
-    int factors[600] = {0};
-    int factor_idx = 0;
-    for(int i=1; i < number; i++){
-        if (number % i == 0){
-            factors[factor_idx] = i;
-            factor_idx++;
-        }
-    }
-    for(int i=0; i < number; i++){
-        if (factors[i] == 0){
-            break;
-        }
-    }
-    return_val i; 
-"""
-
-ccode = """
         int factors[600] = {0};
         int factor_idx = 0;
-        for(int i=1; i < number; i++){
+        for(int i=1; i <= number; i++){
             if (number % i == 0){
                 factors[factor_idx] = i;
                 factor_idx++;
