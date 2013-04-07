@@ -43,8 +43,6 @@ class Test_e11_functions(unittest.TestCase):
 		self.gs._update_max(-1)
 		self.assertEqual(self.gs._max_val, max_val_init)
 		
-class Test_e11_check_horizontal(unittest.TestCase):
-	pass
 		
 class Test_e11_initilization(unittest.TestCase):
 	
