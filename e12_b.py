@@ -18,6 +18,8 @@ while True:
     for i in xrange(1, int(math.sqrt(num))):
         if num % i == 0:
             f += 2
+    if num % int(math.sqrt(num)) == 0:
+        f += 1
     if f > 500:
         break
 
