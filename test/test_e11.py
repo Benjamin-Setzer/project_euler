@@ -1,5 +1,5 @@
 import unittest
-from projecteuler.e11 import GridSolver
+from project_euler.e11 import GridSolver
 
 example_grid = '\n'.join(['1 1 1 2',
 						'1 1 1 3',
