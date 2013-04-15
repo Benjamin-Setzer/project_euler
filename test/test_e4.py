@@ -1,7 +1,7 @@
-import sys
-sys.path.append('../.')
+#import sys
+#sys.path.append('../.')
 import unittest
-from e4 import is_pal, find_largest_pal_product
+from projecteuler.e4 import is_pal, find_largest_pal_product
 
 class Test_is_pal(unittest.TestCase):
 	def test_true(self):

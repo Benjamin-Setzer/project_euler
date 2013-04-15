@@ -1,7 +1,5 @@
-import sys
-sys.path.append('../.')
 import unittest
-from e11 import GridSolver
+from projecteuler.e11 import GridSolver
 
 example_grid = '\n'.join(['1 1 1 2',
 						'1 1 1 3',
